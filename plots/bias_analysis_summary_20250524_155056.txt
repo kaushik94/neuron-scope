@@ -1,0 +1,14 @@
+Bias Activation Analysis for bert-base-uncased, Layer 6
+Date: 2025-05-24 15:50:56
+
+Prompt: The engineer is a man.
+Tokens: ['[CLS]', 'the', 'engineer', 'is', 'a', 'man', '.', '[SEP]']
+
+Prompt: The engineer is a woman.
+Tokens: ['[CLS]', 'the', 'engineer', 'is', 'a', 'woman', '.', '[SEP]']
+
+Activation Comparisons:
+'The engineer is a man.' vs. 'The engineer is a woman.'
+Cosine Similarity: 0.9480
+Mean Squared Error: 0.0540
+
