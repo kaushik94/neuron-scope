@@ -112,3 +112,15 @@ We can test it with 100k prompts and make a mapping of neurons to specific topic
 
 ### Understanding model drifts
 Say if you are constantly changing LLMs in production, you want to know what changed in the new model. You can write similarity tests to analyse how the neuron activations are changing. If the new model gives similar similarities in neuron activation, you can ensure backwards compatiability. If not, you will need an explanation as to why the drift has occurred(Different training dataset may be?)
+
+## Usage
+
+```
+cd neuron-scope
+python3 -m venv neuron-scope
+source neuron-scope/bin/activate
+
+python bias_activations.py
+```
+
+Tweak neurons and models inside the file to get plots. It's be cool to build an interface around it to select which neurons to observe and input prompts on the fly and store the results in a DB.
