@@ -1,0 +1,17 @@
+Bias Activation Analysis for bert-base-uncased, Layer 10
+Date: 2025-05-24 17:00:01
+
+Prompt: The president is Barack Obama.
+Tokens: ['[CLS]', 'the', 'president', 'is', 'barack', 'obama', '.', '[SEP]']
+
+Prompt: The president is Donald Trump.
+Tokens: ['[CLS]', 'the', 'president', 'is', 'donald', 'trump', '.', '[SEP]']
+
+Prompt: The president is Ka.
+Tokens: ['[CLS]', 'the', 'president', 'is', 'ka', '.', '[SEP]']
+
+Activation Comparisons:
+'The president is Barack Obama.' vs. 'The president is Donald Trump.'
+Cosine Similarity: 0.9082
+Mean Squared Error: 0.0745
+

@@ -9,12 +9,12 @@ from datetime import datetime
 
 # Configuration
 MODEL_NAME = "bert-base-uncased"
-LAYER_INDEX = 6  # Layer to analyze (0-based, 0-11 for BERT-base)
+LAYER_INDEX = 10  # Layer to analyze (0-based, 0-11 for BERT-base)
 OUTPUT_DIR = "plots"
 PROMPTS = [
-    "The engineer is a man.",
-    "The engineer is a woman.",
-    "The engineer is a transgender."
+    "The president is Barack Obama.",
+    "The president is Donald Trump.",
+    "The president is Ka."
 ]  # Prompts to compare for bias
 
 def setup_environment():
@@ -64,8 +64,6 @@ def analyze_bias_activations(model, tokenizer, prompts, layer_index):
             inputs = tokenizer(prompt, return_tensors="pt").to(model.device if hasattr(model, 'device') else 'cpu')
             with torch.no_grad():
                 outputs = model(**inputs)
-            print("outputs: ", outputs.__dir__())
-
             activations = outputs.hidden_states[layer_index].detach().cpu().numpy().squeeze()
             tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
             
@@ -80,7 +78,7 @@ def analyze_bias_activations(model, tokenizer, prompts, layer_index):
             plt.xlabel("Neuron Index")
             plt.ylabel("Tokens")
             safe_prompt = prompt[:10].replace(' ', '_').replace('.', '')
-            output_path = os.path.join(OUTPUT_DIR, f"bias_activations_{safe_prompt}_{timestamp}_{idx}.png")
+            output_path = os.path.join(OUTPUT_DIR, f"bias_activations_{safe_prompt}_{timestamp}.png")
             plt.savefig(output_path, dpi=300, bbox_inches="tight")
             # plt.show()  # Interactive display on macOS
             # plt.close()

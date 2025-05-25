@@ -1,0 +1,25 @@
+Bias Activation Analysis for bert-base-uncased, Layer 10
+Date: 2025-05-24 16:52:22
+
+Prompt: man.
+Tokens: ['[CLS]', 'man', '.', '[SEP]']
+
+Prompt: girl.
+Tokens: ['[CLS]', 'girl', '.', '[SEP]']
+
+Prompt: transgender.
+Tokens: ['[CLS]', 'transgender', '.', '[SEP]']
+
+Activation Comparisons:
+'man.' vs. 'girl.'
+Cosine Similarity: 0.8578
+Mean Squared Error: 0.1110
+
+'man.' vs. 'transgender.'
+Cosine Similarity: 0.6827
+Mean Squared Error: 0.2397
+
+'girl.' vs. 'transgender.'
+Cosine Similarity: 0.6867
+Mean Squared Error: 0.2265
+
