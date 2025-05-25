@@ -104,6 +104,18 @@ Cosine Similarity: 0.8187
 Mean Squared Error: 0.1910
 ```
 
+## MLP Activations
+
+Following are the MLP activations for all 4k neurons on layer 0 for "mistralai/Mistral-7B-v0.1" model:
+
+![mistral layer 0](./plots/activations_mistral_layer_0.png)
+
+You can tweak the following script to get activations at any layer and for any token:
+
+```
+python analyse_all_neurons_mistral.py
+```
+
 ## Why this is useful
 
 ### Opening the blackbox of LLMs
@@ -124,3 +136,4 @@ python bias_activations.py
 ```
 
 Tweak neurons and models inside the file to get plots. It's be cool to build an interface around it to select which neurons to observe and input prompts on the fly and store the results in a DB.
+
