@@ -3,6 +3,8 @@ import os
 from huggingface_hub import login
 login(token=os.getenv('HUGGINGFACE_API_KEY'))
 
+OUTPUT_DIR = "plots"
+
 
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -27,9 +29,11 @@ mlp_activations = activations['mlp_output']
 print(mlp_activations.shape)  # Shape: [batch_size, sequence_length, intermediate_size]
 
 import matplotlib.pyplot as plt
-neuron_idx = 0  # Example: Inspect the first neuron
+neuron_idx = 6  # Example: Inspect the first neuron
 plt.plot(mlp_activations[0, :, neuron_idx].cpu().numpy())
 plt.title(f"Activation of Neuron {neuron_idx} in MLP Layer")
 plt.xlabel("Token Position")
 plt.ylabel("Activation Value")
-plt.show()
+output_path = os.path.join(OUTPUT_DIR, f"activations_mistral.png")
+
+plt.savefig(output_path, dpi=300, bbox_inches="tight")
