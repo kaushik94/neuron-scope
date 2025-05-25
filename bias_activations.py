@@ -12,8 +12,8 @@ MODEL_NAME = "bert-base-uncased"
 LAYER_INDEX = 6  # Layer to analyze (0-based, 0-11 for BERT-base)
 OUTPUT_DIR = "plots"
 PROMPTS = [
-    "The engineer is a man.",
-    "The engineer is a woman.",
+    "The engineer is a boy.",
+    "The engineer is a girl.",
     "The engineer is a transgender."
 ]  # Prompts to compare for bias
 
